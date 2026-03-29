@@ -1,0 +1,20 @@
+@{
+    ViewData["Title"] = "Home Page";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to CV Management</h1>
+    <p class="lead">Easily submit your CV and track your applications.</p>
+    <hr class="my-4">
+    <p>
+        @if (User.Identity.IsAuthenticated)
+        {
+            <a class="btn btn-primary btn-lg" asp-controller="Submissions" asp-action="Create">Submit Your CV</a>
+        }
+        else
+        {
+            <a class="btn btn-primary btn-lg" asp-area="Identity" asp-page="/Account/Register">Register</a>
+            <a class="btn btn-secondary btn-lg" asp-area="Identity" asp-page="/Account/Login">Login</a>
+        }
+    </p>
+</div>
